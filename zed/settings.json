@@ -1,0 +1,75 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette
+{
+  "vim_mode": true,
+  "format_on_save": "off",
+  "cursor_blink": false,
+  "auto_update": false,
+  "confirm_quit": false,
+  "relative_line_numbers": true,
+  "indent_guides": {
+    "coloring": "indent_aware"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark Pro"
+  },
+  "ui_font_family": "Hack Nerd Font",
+  "buffer_font_family": "Hack Nerd Font",
+  "ui_font_size": 15,
+  "buffer_font_size": 13,
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false
+  },
+  "tabs": {
+    "git_status": true,
+    "file_icons": true
+  },
+  "git": {
+    "inline_blame": {
+      "min_column": 120
+    }
+  },
+  "features": {
+    "inline_completion_provider": "copilot"
+  },
+  "project_panel": {
+    "dock": "right",
+    "indent_size": 24,
+    "default_width": 700
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "notification_panel": {
+    "dock": "right"
+  },
+  "collaboration_panel": {
+    "dock": "right"
+  },
+  "terminal": {
+    "dock": "right",
+    "default_width": 100
+  },
+  "assistant": {
+    "default_model": {
+      "provider": "zed.dev",
+      "model": "claude-3-5-sonnet-latest"
+    },
+    "version": "2",
+    "dock": "right",
+    "default_width": 1000
+  }
+}

@@ -1,0 +1,30 @@
+# Full lazygit config:    https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
+
+# ~/Library/Application Support/lazygit/config.yml
+gui:
+  showIcons: true
+  showFileTree: true
+  nerdFontsVersion: "3"
+  showDivergenceFromBaseBranch: arrowAndNumber
+  commandLogSize: 6
+git:
+  paging:
+    colorArg: always
+    # https://github.com/dandavison/delta
+    # brew install git-delta
+    # To use it add to ~/.gitconfig
+    #
+    # [delta]
+    #     line-numbers = true
+    #
+    pager: delta --dark --paging=never
+  log:
+    order: date-order
+    showGraph: always
+    showWholeGraph: false
+  parseEmoji: true
+  branchLogCmd: git log --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset) %C(bold black)[%cr] (%an)%C(reset)%n%C(bold white)%s%C(reset)%n%n%b%n%+N' --all
+os:
+  edit: "zed {{filename}}"
+  editAtLine: "zed {{filename}}:{{line}}"
+confirmOnQuit: false
