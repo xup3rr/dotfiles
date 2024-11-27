@@ -1,0 +1,15 @@
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[user]
+	name = xup3rr
+	email = xup3rr@gmail.com
+[init]
+	defaultBranch = main
+[core]
+	ignorecase = false
+	pager = delta
+[delta]
+    line-numbers = true
