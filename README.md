@@ -11,9 +11,10 @@ Feel free to use them as a reference or starting point for your own setup.
 ## ⚙️ Included configurations
 
 - **git** (~/.gitconfig)
-- **lazygit** (~/Library/Application Support/lazygit/config.yml)
-- **tmux** (~/.tmux.conf)
-- **zed** (~/.config/zed)
+- **[iterm2](https://iterm2.com/)** (~/.config/iterm2) (config iterm2 in Preferences > General > Preferences > Load preferences from a custom folder or URL)
+- **[lazygit](https://github.com/jesseduffield/lazygit)** (~/Library/Application Support/lazygit/config.yml)
+- **[tmux](https://github.com/tmux/tmux/wiki)** (~/.tmux.conf)
+- **[zed](https://zed.dev/)** (~/.config/zed)
 
 ---
 
