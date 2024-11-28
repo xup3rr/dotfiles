@@ -1,6 +1,7 @@
 # Full lazygit config:    https://github.com/jesseduffield/lazygit/blob/master/docs/Config.md
 
 # ~/Library/Application Support/lazygit/config.yml
+
 gui:
   showIcons: true
   showFileTree: true
@@ -24,6 +25,7 @@ git:
     showWholeGraph: false
   parseEmoji: true
   branchLogCmd: git log --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset) %C(bold black)[%cr] (%an)%C(reset)%n%C(bold white)%s%C(reset)%n%n%b%n%+N' --all
+  # branchLogCmd: git log --graph --decorate=short --color --format=format:'%C(bold blue)%h%C(reset) %C(auto)%d%C(reset) %C(bold black)[%cr] (%an)%C(reset)%n%C(bold white)%s%C(reset)%n%n%b%n%+N' {{branchName}} --
 os:
   edit: "zed {{filename}}"
   editAtLine: "zed {{filename}}:{{line}}"
