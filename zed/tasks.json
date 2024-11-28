@@ -1,0 +1,32 @@
+// Static tasks configuration.
+//
+[
+  {
+    "label": "lazygit",
+    "command": "lazygit",
+    "env": {},
+    "cwd": "${ZED_WORKTREE_ROOT}",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "on_success"
+  },
+  {
+    "label": "search:project",
+    "command": "QUERY=${ZED_SELECTED_TEXT:-}; FILE=$(rg --column --hidden --line-number --no-heading --color=always --smart-case --colors match:fg:green --colors path:fg:white --colors path:style:nobold --glob '!**/.git/' '--glob' '!**/node_modules'  \"$QUERY\" . | fzf --ansi --delimiter : --preview 'bat --style=numbers,changes,header --color=always --highlight-line {2} {1}' --preview-window 'up:60%:+{2}+3/3' --layout=reverse --query \"$QUERY\" --print-query | tail -1); if [ -n \"$FILE\" ]; then LINE=$(echo $FILE | cut -d':' -f2); COL=$(echo $FILE | cut -d':' -f3); FILE=$(echo $FILE | cut -d':' -f1); zed $FILE:$LINE:$COL; fi",
+    "env": {},
+    "cwd": "${ZED_WORKTREE_ROOT}",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "on_success"
+  },
+  {
+    "label": "gitmoji",
+    "command": "if [[ ! -f ~/.gitmojis.json ]]; then curl -s https://raw.githubusercontent.com/carloscuesta/gitmoji/refs/heads/master/packages/gitmojis/src/gitmojis.json > ~/.gitmojis.json; fi; gitmojis=$(jq -r '.gitmojis[] | \"\\(.emoji) \\(.code) \\(.description)\"' ~/.gitmojis.json); selected=$(echo \"$gitmojis\" | fzf --ansi --preview 'echo {}' --preview-window up:3:wrap); [[ -n \"$selected\" ]] && code=$(echo \"$selected\" | awk '{print $2}') && { branch=$(git branch --show-current 2>/dev/null) && [[ -n \"$branch\" ]] && echo -n \"[$(echo \"$branch\" | sed 's/.*\\///')] ${code}\" || echo -n \"$code\"; } | pbcopy",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "hide": "on_success"
+  }
+]

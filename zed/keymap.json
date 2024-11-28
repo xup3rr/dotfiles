@@ -1,0 +1,153 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      // toggle vim mode
+      "ctrl-alt-cmd-v": "workspace::ToggleVimMode",
+
+      // move around
+      "alt-h": ["workspace::ActivatePaneInDirection", "Left"],
+      "alt-l": ["workspace::ActivatePaneInDirection", "Right"],
+      "alt-k": ["workspace::ActivatePaneInDirection", "Up"],
+      "alt-j": ["workspace::ActivatePaneInDirection", "Down"],
+
+      // focus panels
+      "alt-1": "assistant::ToggleFocus",
+      "alt-2": "project_panel::ToggleFocus",
+      "alt-3": "outline_panel::ToggleFocus",
+      "alt-4": "terminal_panel::ToggleFocus",
+
+      // gitmoji
+      "alt-0": ["task::Spawn", { "task_name": "gitmoji" }],
+
+      // open recent projects
+      "alt-r": "workspace::ToggleRightDock",
+
+      // close
+      "alt-w": "pane::CloseActiveItem",
+
+      // zoom in
+      "alt-z": "workspace::ToggleZoom",
+
+      // tabs
+      "ctrl-h": "pane::ActivatePrevItem",
+      "ctrl-l": "pane::ActivateNextItem",
+      "ctrl-shift-tab": "pane::ActivatePrevItem",
+      "ctrl-tab": "pane::ActivateNextItem",
+
+      // next & prev in code suggestion, menus, etc
+      "ctrl-j": ["workspace::SendKeystrokes", "down"],
+      "ctrl-k": ["workspace::SendKeystrokes", "up"]
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      // escape from insert mode
+      "j k": "vim::NormalBefore",
+      // usefull to exit insert mode in AssistantPanel when send a message
+      "cmd-enter": ["workspace::SendKeystrokes", "escape cmd-enter"]
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "shift-k": "editor::Hover",
+      "space f": "editor::Format",
+      "space /": "editor::ToggleComments",
+      "space w": "workspace::Save",
+      "space c": "pane::CloseActiveItem",
+
+      // go to definition
+      "g d": "editor::GoToDefinition",
+      "g D": "editor::GoToDefinitionSplit",
+
+      // find references
+      "g r": "editor::FindAllReferences",
+
+      // go to file
+      "enter": "editor::OpenExcerpts",
+
+      // assistant
+      "space i": "assistant::InlineAssist",
+      "space a": "assistant::ToggleFocus",
+
+      // file tree (old habits)
+      "space e": "project_panel::ToggleFocus",
+      "space shift-e": "pane::RevealInProjectPanel",
+
+      // tasks
+      "space T": "task::Spawn",
+
+      // tabs
+      "space t": "tab_switcher::Toggle",
+
+      // search
+      "/": "buffer_search::Deploy",
+
+      "space s f": "file_finder::Toggle",
+      "space s t": ["task::Spawn", { "task_name": "search:project" }],
+      "space s s": "project_symbols::Toggle",
+
+      // git
+      "g b": "editor::ToggleGitBlameInline",
+      "g B": "editor::ToggleGitBlame",
+      "g j": "editor::GoToHunk",
+      "g k": "editor::GoToPrevHunk",
+      "g l": "editor::ToggleHunkDiff",
+      "g shift-h": "editor::RevertSelectedHunks",
+      "g shift-l": "editor::ExpandAllHunkDiffs"
+      // "space g g": ["task::Spawn", { "task_name": "lazygit" }], // moved to center terminal
+    }
+  },
+  {
+    "context": "VimControl && !menu || EmptyPane || SharedScreen",
+    "bindings": {
+      // lazygit in center pinned terminal
+      "space g g": [
+        "workspace::SendKeystrokes",
+        "cmd-shift-p new center terminal enter lazygit space && space exit enter cmd-shift-p toggle pin tab enter"
+      ]
+    }
+  },
+  {
+    "context": "Editor && vim_mode == visual && !VimWaiting && !VimObject",
+    "bindings": {
+      // move lines in visual mode
+      "shift-j": "editor::MoveLineDown",
+      "shift-k": "editor::MoveLineUp"
+    }
+  },
+  {
+    "context": "ProjectPanel && not_editing",
+    "bindings": {
+      // manage project files
+      "a": "project_panel::NewFile",
+      "d": "project_panel::Delete",
+      "r": "project_panel::Rename",
+      "enter": "project_panel::Rename",
+      "o": "project_panel::OpenPermanent",
+      "y": "project_panel::Copy",
+      "p": "project_panel::Paste",
+      "q": "workspace::ToggleRightDock"
+    }
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "cmd-n": "workspace::NewTerminal"
+    }
+  },
+  {
+    "context": "AssistantPanel",
+    "bindings": {
+      "cmd-n": "assistant::NewContext"
+    }
+  }
+]
