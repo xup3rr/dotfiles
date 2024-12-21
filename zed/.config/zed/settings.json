@@ -71,5 +71,16 @@
     "version": "2",
     "dock": "right",
     "default_width": 1000
+  },
+  "language_models": {
+    "google": {
+      "available_models": [
+        {
+          "name": "gemini-2.0-flash-exp",
+          "display_name": "gemini-2.0-flash-exp",
+          "max_tokens": 1000000
+        }
+      ]
+    }
   }
 }

@@ -101,18 +101,16 @@
       "g j": "editor::GoToHunk",
       "g k": "editor::GoToPrevHunk",
       "g l": "editor::ToggleHunkDiff",
-      "g shift-h": "editor::RevertSelectedHunks",
-      "g shift-l": "editor::ExpandAllHunkDiffs"
-      // "space g g": ["task::Spawn", { "task_name": "lazygit" }], // moved to center terminal
+      "g shift-l": "editor::ExpandAllHunkDiffs",
+      "g shift-x": "editor::RevertSelectedHunks"
     }
   },
   {
     "context": "VimControl && !menu || EmptyPane || SharedScreen",
     "bindings": {
-      // lazygit in center pinned terminal
       "space g g": [
-        "workspace::SendKeystrokes",
-        "cmd-shift-p new center terminal enter lazygit space && space exit enter cmd-shift-p toggle pin tab enter"
+        "task::Spawn",
+        { "task_name": "lazygit", "target": "center" }
       ]
     }
   },
